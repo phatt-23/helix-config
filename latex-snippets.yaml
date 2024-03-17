@@ -1,0 +1,11 @@
+
+main: |-
+  func main() {
+      $1
+  }
+
+err: |-
+  if err != nil {
+      $1
+  }
+

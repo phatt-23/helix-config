@@ -1,0 +1,13 @@
+[[language]]
+name = "cpp" 
+indent = { tab-width = 4, unit = " " }
+language-servers = ["texlab", "snippets-ls"]
+
+
+[[language]]
+name = "c" 
+indent = { tab-width = 4, unit = " " }
+
+[language-server.snippets-ls]
+args = ["-config", "/home/phatt/.config/helix/latex-snippets.yaml"]
+command = "snippets-ls"
