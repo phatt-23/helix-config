@@ -1,0 +1,103 @@
+theme = "a-catppuccin"
+
+[editor]
+line-number = "relative"
+bufferline = "always"
+color-modes = true
+undercurl = true
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·" 
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.statusline]
+left = ["spinner", "spacer", "mode", "spacer", "separator", "spacer", "version-control", "spacer", "separator", "file-name", "read-only-indicator", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "position", "separator", "spacer", "position-percentage", "spacer", "separator", "file-type", "spinner"]
+separator = "·"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[keys.normal]
+y = [":clipboard-yank", "yank"]
+C-v = [":clipboard-paste-before"]
+"C-ret" = ["open_below", "normal_mode"] 
+"C-S-ret" = ["open_above", "normal_mode"] 
+"C-j" = "scroll_down"
+"C-k" = "scroll_up"
+"A-j" = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+"A-k" = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+# "C-z" = "no_op"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.normal."C-s"]
+s = ":w!"
+a = ":wa!"
+
+[keys.insert."C-s"]
+s = [":w!", "insert_mode"] # save the active buffer
+a = [":wa!", "insert_mode"] # save every buffer 
+C-s = "no_op"
+
+[keys.normal."+"]
+m = ":sh make"
+n = ":sh make build"
+r = ":sh make run"
+c = ":sh make clean"
+C-c = ":sh make cleanall"
+
+[keys.normal."ě"]
+u = ":bp"
+i = ":bn"
+
+[keys.insert]
+"C-i" = "normal_mode"
+C-v = [":clipboard-paste-before"]
+"C-ret" = ["open_below", "insert_mode"] 
+"C-S-ret" = ["open_above", "insert_mode"]
+"C-h" =  ["move_char_left", "insert_mode"]
+"C-j" =  ["move_visual_line_down", "insert_mode"]
+"C-k" = ["move_visual_line_up", "insert_mode"]
+"C-l" = ["move_char_right", "insert_mode"]
+"C-u" = ["delete_char_backward"]
+"A-u" = ["delete_word_backward"]
+"A-d" = ["delete_word_forward"]
+"A-j" = [ "normal_mode", "extend_to_line_bounds", "delete_selection", "paste_after", "insert_mode" ]
+"A-k" = [ "normal_mode", "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "insert_mode" ]
+
+[keys.select]
+C-i = "normal_mode"
+y = [":clipboard-yank", "yank"]
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]
+
+[editor.soft-wrap]
+enable = true

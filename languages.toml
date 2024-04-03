@@ -1,0 +1,57 @@
+### C/C++
+[[language]]
+name = "cpp" 
+indent = { indent-style = 4, tab-width = 4, unit = "    " }
+
+[[language]]
+name = "c" 
+indent = { indent-style = 4, tab-width = 4, unit = "    " }
+
+### LaTeX 
+[[language]]
+name = "latex"
+
+[language-server.texlab.config.texlab.build]
+onSave = true
+# forwardSearchAfter = true
+
+[language-server.texlab.config.texlab.forwardSearch]
+executable = "zathura"
+args = [ "--synctex-forward", "%l:5:%f", "%p" ]
+
+[language-server.texlab.config.texlab.chktex]
+onEdit = true
+
+# [language-server.snippets-ls]
+# args = ["-config", "/home/phatt/.config/helix/latex-snippets.yaml"]
+# command = "snippets-ls"
+
+[[language]]
+name = "rust"
+auto-format = false
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = false
+inlayHints.closingBraceHints.minLines = 10
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.typeHints.hideClosureInitialization = false
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "ltex-ls" ]
+
+[language-server.ltex-ls.config]
+ltex.disabledRules = { "en-US" = ["PROFANITY"], "en-GB" = ["PROFANITY"] }
+ltex.dictionary = { "en-US" = ["builtin"], "en-GB" = ["builtin"] }
